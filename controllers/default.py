@@ -59,3 +59,6 @@ def download():
 
 def home():
     return dict()
+
+def about():
+    return dict()
