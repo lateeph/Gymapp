@@ -1,0 +1,48 @@
+{{extend 'my_layout.html'}}
+{{if response.flash:}}
+{{=response.flash}}
+{{pass}}
+<h1  style="text-align:center">Add member</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 form-div">
+			<form action="" enctype="multipart/form-data" method="post">
+			  	<div class="form-group">
+			    	<label for="exampleInputFirstName">First Name</label>
+			    	<input type="text" class="form-control" id="exampleInputFirstName" placeholder="First Name" name="firstname" required>
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="exampleInputLastName">Last Name</label>
+			    	<input type="text" class="form-control" id="exampleInputLastName" placeholder="Last Name" name="lastname" required>
+			  	</div>
+			  	<div class="form-group">
+          			<label for="exampleInputLastName">Phone Number</label>
+          			<input class="form-control" id="inputPhone" maxlength="10" name="phonenumber" placeholder="Phone Number" size="3" title="" type="tel" required>
+        		</div>
+        		<div class="form-group">
+		          <label for="exampleInputGender">Gender</label>
+		          <div>
+		            <label class="radio-inline">
+		              <input type="radio" id="female" name="gender" value="Female" required>Female
+		            </label>
+		            <label class="radio-inline">
+		              <input type="radio" id="male" name="gender" value="Male">Male
+		            </label>
+		          </div>
+		        </div>
+			  	<div class="form-group">
+			    	<label for="exampleInputEmail1">Email address</label>
+			    	<input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email">
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="exampleInputPassword1">Password</label>
+			    	<input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+			  	</div>
+			  	<input type="hidden" name="_formname" value="members">
+			  	<div>
+			  		<input type="submit" class="btn btn-primary" value="Add Member">
+			  	</div>
+			</form>
+		</div>
+	</div>
+</div>

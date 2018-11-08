@@ -65,3 +65,16 @@ def about():
 
 def membership():
     return dict()
+
+def addMember():
+    form = SQLFORM(db.members)
+    if form.process(session=None, formname='members').accepted:
+        response.flash = 'Members added successfully'
+        redirect(URL('showMembers'))
+    else:           
+        response.flash = 'An error occurred'
+    return dict()
+
+def showMembers():
+    members = db().select(db.members.ALL, orderby=~db.members.id)
+    return dict(members=members)

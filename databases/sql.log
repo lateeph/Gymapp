@@ -53,3 +53,90 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
+timestamp: 2018-11-08T11:41:41.621000
+CREATE TABLE "members"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "db_firstname" CHAR(512),
+    "db_lastname" CHAR(512),
+    "db_email" CHAR(512),
+    "db_password" CHAR(512)
+);
+success!
+timestamp: 2018-11-08T12:24:33.692000
+ALTER TABLE "members" ADD "firstname" CHAR(512);
+timestamp: 2018-11-08T12:24:33.947000
+ALTER TABLE "members" ADD "lastname" CHAR(512);
+timestamp: 2018-11-08T12:24:34.124000
+ALTER TABLE "members" ADD "email" CHAR(512);
+timestamp: 2018-11-08T12:24:34.293000
+ALTER TABLE "members" ADD "phonenumber" CHAR(512);
+timestamp: 2018-11-08T12:24:34.469000
+ALTER TABLE "members" ADD "gender" CHAR(512);
+timestamp: 2018-11-08T12:24:34.635000
+ALTER TABLE "members" ADD "password" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

@@ -152,3 +152,13 @@ if configuration.get('scheduler.enabled'):
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
+
+
+db = DAL("sqlite://storage.sqlite")
+db.define_table("members",
+               Field('firstname'),
+               Field('lastname'),
+               Field('phonenumber'),
+               Field('gender'),
+               Field('email'),
+               Field('password'))

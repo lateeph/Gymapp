@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="{{=URL('static','css/bootstrap.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{=URL('static','css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{=URL('static','css/styles.css')}}">
 </head>
 <body>
 	<div class="container-fluid">
@@ -31,7 +31,8 @@
 			        	<li><a href="{{=URL('home.html')}}">Home<span class="sr-only">(current)</span></a></li>
 			        	<li><a href="{{=URL('about.html')}}">About</a></li>
 			        	<li><a href="{{=URL('contact.html')}}">Contact Us</a></li>
-			        	<li><a href="{{=URL('membership.html')}}">Membership</a></li>
+			        	<li><a href="{{=URL('showMembers.html')}}">Members</a></li>
+			        	<li class="link"><a href="{{=URL('membership.html')}}">Membership</a></li>
 			      	</ul>
 			      	
 			    	</div><!-- /.navbar-collapse -->
@@ -42,8 +43,7 @@
 	{{include}}
 	<div class="container-fluid">
 		<div class="row">
-			<div class="footer">
-		  © 2018 ACCRA GYM
+			<div class="footer"><h3>© 2018 ACCRA GYM</h3>
 			</div>
 		</div>
 	</div>

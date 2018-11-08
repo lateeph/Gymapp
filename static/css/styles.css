@@ -13,3 +13,18 @@ body {
     height: 35px;
     width: 70px;
 }
+
+.form-div {
+	margin-top: 20px;
+	border: 1px solid #333;
+	border-color: black;
+	padding: 20px;
+}
+
+.panel-div {
+	margin-top: 50px;
+}
+
+.link {
+	background-color: red;
+}
