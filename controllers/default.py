@@ -62,3 +62,6 @@ def home():
 
 def about():
     return dict()
+
+def membership():
+    return dict()
