@@ -1,0 +1,34 @@
+{{extend 'my_layout.html'}}
+{{if response.flash:}}
+{{=response.flash}}
+{{pass}}
+<h1  style="text-align:center">Add Page</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 form-div">
+			<form action="" enctype="multipart/form-data" method="post">
+			  	<div class="form-group">
+			    	<label for="exampleInputFile">File input</label>
+			    	<input type="file" id="exampleInputFile" name="file">
+			  	</div>
+			    <div class="form-group">
+			        <label for="kilograms">Weight — kilograms:</label>
+			        <input id="kilograms" type="number" name="kilograms" step="0.1" min="5" placeholder="e.g. 5.8" required>
+			        <span class="validity"></span>
+			    </div>
+			    <div class="form-group">
+			        <label for="WaistCircumference">Waist — centimetres:</label>
+			        <input id="centimetres" type="number" name="centimetres" step="1" min="5" placeholder="e.g. 32" required>
+			        <span class="validity"></span>
+			    </div>
+
+			    <input type="hidden" name="_formname" value="page">
+	            <input type="hidden" name="member_id" value="{{=memberId}}">
+			  	
+			  	<div>
+			  		<button type="submit" class="btn btn-primary">Add Page</button>
+			  	</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -78,3 +78,39 @@ def addMember():
 def showMembers():
     members = db().select(db.members.ALL, orderby=~db.members.id)
     return dict(members=members)
+
+def showMembersAdmin():
+    members = db().select(db.members.ALL, orderby=~db.members.id)
+    return dict(members=members)
+
+def updateMember():
+    memberId = request.args(0) or redirect(URL())
+    member = db.members(memberId) or redirect(URL())
+    form = SQLFORM(db.members, memberId)
+    if form.process(session=None, formname='member_update').accepted:
+        redirect(URL('showMembersAdmin'))
+    return dict(member=member)
+
+def deleteMember():
+    if db(db.members.id == request.args(0)).delete():
+        response.flash = 'Member Deleted Successfully'
+    else:
+        response.flash = 'An Error Occurred while deleting member'
+    redirect(request.env.http_referer)
+
+def addPage():
+    memberId = request.args(0, cast=int) or redirect(URL())
+    form = SQLFORM(db.pages)
+    if form.process(session=None, formname='page').accepted:
+        response.flash = 'page added successfully'
+        redirect(URL('showPages', args=memberId))
+    else:
+        response.flash = 'error occurred while adding page'
+    return dict(form=form, memberId=memberId)
+
+def showPages():
+    return dict()
+
+def contact():
+    return dict()
+    

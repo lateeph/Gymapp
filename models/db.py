@@ -162,3 +162,9 @@ db.define_table("members",
                Field('gender'),
                Field('email'),
                Field('password'))
+
+db.define_table("pages",
+                Field('member_id', 'reference members'),
+                Field('file', 'upload'),
+                Field('kilograms'),
+                Field('centimetres'))
