@@ -159,12 +159,13 @@ db.define_table("members",
                Field('firstname'),
                Field('lastname'),
                Field('phonenumber'),
-               Field('gender'),
-               Field('email'),
-               Field('password'))
+               Field('gender'))
 
 db.define_table("pages",
                 Field('member_id', 'reference members'),
+                Field('week'),
                 Field('file', 'upload'),
                 Field('kilograms'),
                 Field('centimetres'))
+
+

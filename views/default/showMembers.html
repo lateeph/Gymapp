@@ -1,4 +1,7 @@
 {{extend 'my_layout.html'}}
+{{if response.flash:}}
+{{=response.flash}}
+{{pass}}
 <div class="container">
 	<div class="row">
 		<div class="list-group panel-div">
@@ -12,7 +15,7 @@
 		  	{{pass}}
 		  	{{else:}}
 		  	<div>
-		  	No Member added yet. Please <a href="{{=URL('addMember')}}"> add a notebook</a>
+		  	No Member added yet. Please <a href="{{=URL('addMember')}}"> add a member</a>
 		  	</div>
 		  	{{pass}}
 		  	</div>

@@ -102,15 +102,37 @@ def addPage():
     memberId = request.args(0, cast=int) or redirect(URL())
     form = SQLFORM(db.pages)
     if form.process(session=None, formname='page').accepted:
-        response.flash = 'page added successfully'
+        response.flash = 'note added successfully'
         redirect(URL('showPages', args=memberId))
     else:
-        response.flash = 'error occurred while adding page'
+        response.flash = 'error occurred while adding note'
     return dict(form=form, memberId=memberId)
 
 def showPages():
-    return dict()
+    memberId = request.args(0) or redirect(URL())
+    pages = db(db.pages.member_id==memberId).select(orderby=~db.pages.id)
+    return dict(pages=pages, memberId=memberId)
 
+   
 def contact():
     return dict()
-    
+
+def deletePage():
+    pageId = request.args(0) or redirect(URL())
+    if db(db.pages.id == pageId).delete():
+        response.flash = 'Note Deleted Successfully'
+    else:
+        response.flash = 'An Error Occurred while deleting note'
+    redirect(request.env.http_referer)
+
+def updatePage():
+    pageId = request.args(1) or redirect(URL())
+    memberId = request.args(0) or redirect(URL())
+    page = db.pages(pageId) or redirect(URL())
+    form = SQLFORM(db.pages, pageId)
+    if form.process(session=None, formname='page').accepted:
+        redirect(URL('showPages', args=memberId))
+    else:
+        response.flash = 'Error Occurred'
+    return dict(page=page)
+

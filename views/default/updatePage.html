@@ -1,7 +1,4 @@
 {{extend 'my_layout.html'}}
-{{if response.flash:}}
-{{=response.flash}}
-{{pass}}
 <h1  style="text-align:center">Add Page</h1>
 <div class="container">
 	<div class="row">
@@ -9,25 +6,25 @@
 			<form action="" enctype="multipart/form-data" method="post">
 			  	<div class="form-group">
 			    	<label for="exampleInputFirstName">WEEK</label>
-			    	<input type="text" class="form-control" id="exampleInputFirstName" placeholder="e.g. week 1" name="week" required>
+			    	<input type="text" class="form-control" id="exampleInputFirstName" placeholder="e.g. week 1" name="week" value="{{=page.week}}" required>
 			  	</div>
 			  	<div class="form-group">
 			    	<label for="exampleInputFile">File input</label>
-			    	<input type="file" id="exampleInputFile" name="file">
+			    	<input type="file" id="exampleInputFile" name="file" value="{{=page.file}}">
 			  	</div>
 			    <div class="form-group">
 			        <label for="kilograms">Weight — kilograms:</label>
-			        <input id="kilograms" type="number" name="kilograms" step="1" min="40" placeholder="e.g. 75" required>
+			        <input id="kilograms" type="number" name="kilograms" step="1" min="40" placeholder="e.g. 75" value="{{=page.kilograms}}" required>
 			        <span class="validity"></span>
 			    </div>
 			    <div class="form-group">
 			        <label for="WaistCircumference">Waist — centimetres:</label>
-			        <input id="centimetres" type="number" name="centimetres" step="1" min="25" placeholder="e.g. 32" required>
+			        <input id="centimetres" type="number" name="centimetres" step="1" min="25" placeholder="e.g. 32" value="{{=page.centimetres}}" required>
 			        <span class="validity"></span>
 			    </div>
 
 			    <input type="hidden" name="_formname" value="page">
-			    <input type="hidden" name="member_id" value="{{=memberId}}">
+			    <input type="hidden" name="member_id" value="{{=page.Id}}">
 			  	
 			  	<div>
 			  		<button type="submit" class="btn btn-primary">Add Page</button>

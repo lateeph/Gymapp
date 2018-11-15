@@ -1,1 +1,21 @@
 {{extend 'my_layout.html'}}
+{{if response.flash:}}
+{{=response.flash}}
+{{pass}}
+
+{{if pages:}}
+{{for page in pages:}}
+<div style="text-align: center">
+<h1>{{=page.week}}</h1>
+<img width="300px"
+	src="{{=URL('download', args=page.file)}}" />
+</div>
+<h1>Weight is {{=page.kilograms}}kg</h1>
+<h1>Waist circumference is {{=page.centimetres}}cm</h1>
+<h1><a href="{{=URL('updatePage', args=[memberId,page.id])}}">Update Page</a></h1>
+<h1><a href="{{=URL('deletePage', args=page.id)}}">Delete Page</a></h1>
+{{pass}}
+{{else:}}
+<div>No pages. Please <a href="{{=URL('addPage',args=memberId)}}">add a member</div>
+{{pass}}
+
