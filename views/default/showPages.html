@@ -2,20 +2,25 @@
 {{if response.flash:}}
 {{=response.flash}}
 {{pass}}
-
+<center>
+        <a href="{{=URL('addPage', args=memberId)}}"><button>Add Progress</button></a>
+    </center>
 {{if pages:}}
 {{for page in pages:}}
 <div style="text-align: center">
 <h1>{{=page.week}}</h1>
-<img width="300px"
+<img width="200px"
 	src="{{=URL('download', args=page.file)}}" />
 </div>
-<h1>Weight is {{=page.kilograms}}kg</h1>
-<h1>Waist circumference is {{=page.centimetres}}cm</h1>
-<h1><a href="{{=URL('updatePage', args=[memberId,page.id])}}">Update Page</a></h1>
-<h1><a href="{{=URL('deletePage', args=page.id)}}">Delete Page</a></h1>
+<center>
+<h4>Weight is {{=page.kilograms}}kg</h4>
+<h4>Waist circumference is {{=page.centimetres}}cm</h4>
+
+<h4><a href="{{=URL('deletePage', args=page.id)}}">Delete Progress</a></h4>
+<h4><a href="{{=URL('updatePage/' + str(page.id) + '/' + str(memberId))}}">Update</a></h4>
+</center>
 {{pass}}
 {{else:}}
-<div>No pages. Please <a href="{{=URL('addPage',args=memberId)}}">add a member</div>
+<div>No pages. Please <a href="{{=URL('addPage',args=memberId)}}">Add progress</div>
 {{pass}}
 

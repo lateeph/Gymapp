@@ -1,12 +1,12 @@
 {{extend 'my_layout.html'}}
-<h1  style="text-align:center">Add Page</h1>
+<h1  style="text-align:center">Update Progress</h1>
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 form-div">
-			<form action="" enctype="multipart/form-data" method="post">
+			<form action="{{=URL('update')}}" enctype="multipart/form-data" method="post">
 			  	<div class="form-group">
 			    	<label for="exampleInputFirstName">WEEK</label>
-			    	<input type="text" class="form-control" id="exampleInputFirstName" placeholder="e.g. week 1" name="week" value="{{=page.week}}" required>
+			    	<input type="text" class="form-control" id="exampleInputFirstName" placeholder="e.g. week 1" name="week" value="{{=page.week}}">
 			  	</div>
 			  	<div class="form-group">
 			    	<label for="exampleInputFile">File input</label>
@@ -14,20 +14,22 @@
 			  	</div>
 			    <div class="form-group">
 			        <label for="kilograms">Weight — kilograms:</label>
-			        <input id="kilograms" type="number" name="kilograms" step="1" min="40" placeholder="e.g. 75" value="{{=page.kilograms}}" required>
+			        <input id="kilograms" type="number" name="kilograms" step="1" min="40" placeholder="e.g. 75" value="{{=page.kilograms}}">
 			        <span class="validity"></span>
 			    </div>
 			    <div class="form-group">
 			        <label for="WaistCircumference">Waist — centimetres:</label>
-			        <input id="centimetres" type="number" name="centimetres" step="1" min="25" placeholder="e.g. 32" value="{{=page.centimetres}}" required>
+			        <input id="centimetres" type="number" name="centimetres" step="1" min="25" placeholder="e.g. 32" value="{{=page.centimetres}}">
 			        <span class="validity"></span>
 			    </div>
 
-			    <input type="hidden" name="_formname" value="page">
-			    <input type="hidden" name="member_id" value="{{=page.Id}}">
+			  
+					<input type="hidden" name="id" value="{{=page.id}}">
+					<input type="hidden" name="memberid" value="{{=memberId}}">
+				
 			  	
 			  	<div>
-			  		<button type="submit" class="btn btn-primary">Add Page</button>
+			  		<button type="submit" class="btn btn-primary">Update Progress</button>
 			  	</div>
 			</form>
 		</div>

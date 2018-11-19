@@ -12,6 +12,7 @@
 		 	{{if members:}}
 		 	{{for member in members:}}
 		  	<p class="list-group-item">{{=member.firstname}}&nbsp;{{=member.lastname}}<br>
+			<a href="{{=URL('showPages', args=member.id)}}">Show Progress</p>
 		  	{{pass}}
 		  	{{else:}}
 		  	<div>

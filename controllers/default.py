@@ -70,7 +70,7 @@ def addMember():
     form = SQLFORM(db.members)
     if form.process(session=None, formname='members').accepted:
         response.flash = 'Members added successfully'
-        redirect(URL('showMembers'))
+        redirect(URL('showMembersAdmin'))
     else:           
         response.flash = 'An error occurred'
     return dict()
@@ -91,6 +91,9 @@ def updateMember():
         redirect(URL('showMembersAdmin'))
     return dict(member=member)
 
+
+
+
 def deleteMember():
     if db(db.members.id == request.args(0)).delete():
         response.flash = 'Member Deleted Successfully'
@@ -110,7 +113,7 @@ def addPage():
 
 def showPages():
     memberId = request.args(0) or redirect(URL())
-    pages = db(db.pages.member_id==memberId).select(orderby=~db.pages.id)
+    pages = db(db.pages.member_id==memberId).select(orderby=db.pages.id)
     return dict(pages=pages, memberId=memberId)
 
    
@@ -120,19 +123,38 @@ def contact():
 def deletePage():
     pageId = request.args(0) or redirect(URL())
     if db(db.pages.id == pageId).delete():
-        response.flash = 'Note Deleted Successfully'
+        response.flash = 'Progress Deleted Successfully'
     else:
-        response.flash = 'An Error Occurred while deleting note'
+        response.flash = 'An Error Occurred while deleting progress'
     redirect(request.env.http_referer)
 
-def updatePage():
-    pageId = request.args(1) or redirect(URL())
-    memberId = request.args(0) or redirect(URL())
-    page = db.pages(pageId) or redirect(URL())
-    form = SQLFORM(db.pages, pageId)
-    if form.process(session=None, formname='page').accepted:
-        redirect(URL('showPages', args=memberId))
+def update():
+    submitted_week = request.vars.week
+    submitted_file = request.vars.file
+    submitted_kilograms = request.vars.kilograms
+    submitted_centimetres = request.vars.centimetres
+    submitted_id = request.vars.id
+    memberId = request.vars.memberid
+
+    if db(db.pages.id == submitted_id).select():
+
+
+        db(db.pages.id == submitted_id).update(
+            week=submitted_week,
+            file=submitted_file,
+            kilograms=submitted_kilograms,
+            centimetres=submitted_centimetres
+            )
+        return redirect(URL('showPages', args=memberId))
     else:
-        response.flash = 'Error Occurred'
-    return dict(page=page)
+        return 'An Error Occurred while deleting progress'
+
+
+
+def updatePage():
+    parameters = request.args
+    submitted_id=parameters[0]
+    memberId=parameters[1]
+    page=db(db.pages.id==submitted_id).select()[0]
+    return dict(page=page, memberId=memberId)
 
